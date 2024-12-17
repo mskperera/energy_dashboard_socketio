@@ -1,0 +1,111 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.container {
+
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+.device-card {
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.device-card h3 {
+  text-align: center;
+  color: #2980b9;
+}
+
+.data-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.data-item {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.data-item h4 {
+  font-size: 16px;
+  color: #34495e;
+}
+
+.data-item p {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .data-box {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .data-item {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .data-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* App.css */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.device-card {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.data-box {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); /* Create 8 equal columns */
+  gap: 10px; /* Space between columns */
+  margin-top: 20px;
+}
+
+.data-item {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+h3, h4 {
+  margin: 5px 0;
+}
