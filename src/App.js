@@ -9,7 +9,8 @@ const App = () => {
   const [status, setStatus] = useState([]);
   const [socket, setSocket] = useState(null);
 
-  const chipIds = ["0857A75C7BCC", "2C53A75C7BCC","A431A0FC8AD4"];
+  const [deviceStatusArr,setDeviceStatusArr]=useState([]);
+  const chipIds = ["0857A75C7BCC", "2C53A75C7BCC","A431A0FC8AD4","9885A75C7BCC"];
 
   useEffect(() => {
     const newSocket = io(SERVER_URL); // Connect to the Socket.IO server
@@ -32,6 +33,23 @@ const App = () => {
       });
     });
 
+
+
+    
+
+    newSocket.on("deviceStatusUpdate", (data) => {
+      console.log("deviceStatusUpdate received:", data);
+
+      const index=deviceStatusArr.findIndex(f=>f.chipId===data.chipId);
+        if (index !== -1) {
+          deviceStatusArr.splice(index, 1);
+        }
+
+        deviceStatusArr.push(data);
+        console.log("deviceStatusArr:", deviceStatusArr);
+
+    });
+
     newSocket.on("realtimeData", (data) => {
       console.log("Real-time data received:", data);
 
@@ -40,7 +58,7 @@ const App = () => {
 
         if (existingIndex !== -1) {
           const updatedStatus = [...prevStatus];
-          updatedStatus[existingIndex] = { chipId: data.chipId, realtimeData: data.realtimeData };
+          updatedStatus[existingIndex] = {status:data?.status, chipId: data.chipId, realtimeData: data.realtimeData };
           return updatedStatus;
         } else {
           return [...prevStatus, { chipId: data.chipId, realtimeData: data.realtimeData }];
@@ -64,12 +82,20 @@ const App = () => {
     <div className="container">
       <h1>Socket.IO Real-Time Data</h1>
 
-      {status.map((item, index) => (
+      {status?.map((item, index) => (
         <div className="device-card" key={index}>
           <h3>ChipId: {item.chipId}</h3>
 
+          <div className="data-item">
+            <h4>Status</h4>
+            <p>{deviceStatusArr.find(d=>d.chipId===item.chipId).status}</p>
+          </div>
+
           <div className="data-box">
+     
+
             <div className="data-item">
+            
               <h4>L1 Voltage</h4>
               <p>{item.realtimeData.Voltage} V</p>
             </div>
