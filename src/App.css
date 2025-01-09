@@ -90,3 +90,41 @@ h1 {
     padding: 8px;
   }
 }
+
+
+.reload-button {
+  background-color: #007BFF; /* Primary blue color */
+  color: white; /* White text */
+  font-size: 16px; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  padding: 10px 20px; /* Padding for a bigger button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.3s ease; /* Smooth hover effects */
+}
+
+.reload-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.reload-button:active {
+  background-color: #00408d; /* Even darker blue when clicked */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+  transform: translateY(1px); /* Press-down effect */
+}
+
+
+.device-counts {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  gap: 20px; /* Space between counts */
+}
+.device-counts p {
+  margin: 0;
+}
